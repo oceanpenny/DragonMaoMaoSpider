@@ -1,0 +1,25 @@
+MongoDB.conn:
+  host: '127.0.0.1'
+  port: 27017
+#--deafault no user/pwd check
+#  user:
+#  pwd:
+#--default use admin
+#  db: 'admin'
+#--deafault no cluster
+#  replicaSet:
+#    name: 
+#    members:
+#      - host: 'localhost'
+#        port: 27017
+#      - host: 'localhost'
+#        port: 27017
+
+#master redis
+Redis.conn:
+  host: '127.0.0.1'
+  port: 6379
+  url:
+#--deafault no user/pwd check
+#  pwd:
+#  db: 0
