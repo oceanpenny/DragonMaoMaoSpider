@@ -8,9 +8,11 @@ from datetime import datetime, timedelta
 import random
 from twisted.web._newclient import ResponseNeverReceived
 from twisted.internet.error import TimeoutError, ConnectionRefusedError, ConnectError
-
+import logging
 from DragonMaoMaoSpider.anticrawl.user_agents import agents
 from DragonMaoMaoSpider.anticrawl.proxy import proxy, http_key, https_key
+
+logger = logging.getLogger(__name__)
 
 class UserAgentMiddleware(object):
     def process_request(self, request, spider):
@@ -23,26 +25,28 @@ class ProxyMiddleware(object):
         self.last_proxy_time = datetime.now()
         self.recover_interval = 20
 
+    #defaut change proxy after 20 minutes or request.meta['change_proxy']=true which may cause by except or response.
     def process_request(self, request, spider):
         if datetime.now() > (self.last_proxy_time + timedelta(minutes=self.recover_interval)):
             request.meta['change_proxy'] = True
             self.last_no_proxy_time = datetime.now()
+            logger.debug('try change proxy')
 
-        #request.meta['dont_redirect'] = True
         if "change_proxy" in request.meta.keys() and request.meta["change_proxy"]:
-            print(request.url)
             if request.url.startswith('https://'):
                 request.meta['proxy'] = proxy.get_proxy(https_key)
             elif request.url.startswith('http://'):
                 request.meta['proxy'] = proxy.get_proxy(http_key)
             request.meta['change_proxy'] = False
-            print('proxy: ',request.meta['proxy'])
+            logger.debug('url:%s, proxyy:%s' % (request.url, request.meta['proxy']))
 
+    #when response code is not 200 or not in allowed status_list change_proxy and try again, set dont_filter=True
+    #you should init your spider.allowed_status_list attribute.
     def process_response(self, request, response, spider):
         if response.status != 200 \
-                and (not hasattr(spider, "website_possible_httpstatus_list") \
-                     or response.status not in spider.website_possible_httpstatus_list):
-            print("response status not in spider.website_possible_httpstatus_list")
+                and (not hasattr(spider, "allowed_status_list") \
+                     or response.status not in spider.allowed_status_list):
+            logger.debug('response status not in spider.allowed_status_list')
             new_request = request.copy()
             new_request.meta['change_proxy'] = True
             new_request.dont_filter = True
@@ -50,5 +54,10 @@ class ProxyMiddleware(object):
         else:
             return response
 
+    #sample retry and change proxy
     def process_exception(self, request, exception, spider):
-        print('request exception: ', request.url)
+        logger.debug('request exception: ', request.url)
+        new_request = request.copy()
+        new_request.meta['change_proxy'] = True
+        new_request.dont_filter = True
+        return new_request

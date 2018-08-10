@@ -17,7 +17,6 @@ class DouBanUrlGenerator(object):
         for i in range(15):
             self.gen()
 
-
 if __name__ == '__main__':
     testGenerator = DouBanUrlGenerator('物理','DouBanSpider:start_urls')
     testGenerator.totalgen()

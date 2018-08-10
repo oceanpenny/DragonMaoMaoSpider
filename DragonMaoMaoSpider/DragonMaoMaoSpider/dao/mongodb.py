@@ -46,14 +46,15 @@ class MongoDBClient(object):
             self.client.close()
 
 #singleton
-mongodb_cli = MongoDBClient().client
+mongodb_cli = MongoDBClient()
 
 if __name__ == '__main__':
     #configs = ConfigParser()
     #mysql_conn = configs.get(server='',key='conn')
     #print(mysql_conn)
-    mongodb_cli.insert('phq', {'name': 'phq','age': 26})
-    mongodb_cli.remove('phq',{'name':'phq'})
-    mongodb_cli.close()
+    client = MongoDBClient()
+    client.insert('phq', {'name': 'phq','age': 26})
+    client.remove('phq',{'name':'phq'})
+    client.close()
 
 

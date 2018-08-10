@@ -8,7 +8,8 @@ from scrapy.http import Request
 class Spider(RedisSpider):
     name = 'DouBanSpider'
     redis_key = 'DouBanSpider:start_urls'
-    DouBanUrlGenerator('科技', redis_key).totalgen()
+    for tag in {'爱情','IT','算法','战争','名著','历史','地理','哲学','科技','旅游'}:
+        DouBanUrlGenerator(tag, redis_key).totalgen()
 
     def parse(self, response):
         bookItem = BookItem()

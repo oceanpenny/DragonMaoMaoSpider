@@ -10,7 +10,6 @@ from DragonMaoMaoSpider.items import InformationItem, TweetsItem, RelationshipsI
 class MongoDBPipeline(object):
 
     def process_item(self, item, spider):
-        """ 判断item的类型，并作相应的处理，再入数据库 """
         if isinstance(item, RelationshipsItem):
             try:
                 mongodb_cli.insert('Relationships', dict(item))
