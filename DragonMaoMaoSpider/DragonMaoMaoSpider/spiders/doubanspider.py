@@ -8,7 +8,14 @@ from scrapy.http import Request
 class Spider(RedisSpider):
     name = 'DouBanSpider'
     redis_key = 'DouBanSpider:start_urls'
-    for tag in {'爱情','IT','算法','战争','名著','历史','地理','哲学','科技','旅游'}:
+    allowed_status_list = []
+
+    #no need to login, no cookies, disable redirect
+    custom_settings = {
+        'COOKIES_ENABLED': False,
+    }
+
+    for tag in {'爱情','传记','汽车','旅游','历史','武侠','哲学','物理','心理学'}:
         DouBanUrlGenerator(tag, redis_key).totalgen()
 
     def parse(self, response):

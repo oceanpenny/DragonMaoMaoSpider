@@ -1,0 +1,296 @@
+2018-08-11 16:34:36 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: DragonMaoMaoSpider)
+2018-08-11 16:34:36 [scrapy.utils.log] INFO: Versions: lxml 4.2.3.0, libxml2 2.9.7, cssselect 1.0.3, parsel 1.5.0, w3lib 1.19.0, Twisted 18.7.0, Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:06:47) [MSC v.1914 32 bit (Intel)], pyOpenSSL 18.0.0 (OpenSSL 1.1.0h  27 Mar 2018), cryptography 2.3, Platform Windows-7-6.1.7601-SP1
+2018-08-11 16:34:36 [scrapy.crawler] INFO: Overridden settings: {'AUTOTHROTTLE_ENABLED': True, 'BOT_NAME': 'DragonMaoMaoSpider', 'COOKIES_ENABLED': False, 'DOWNLOAD_DELAY': 3, 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter', 'LOG_FILE': 'DouBanSpider.log', 'NEWSPIDER_MODULE': 'DragonMaoMaoSpider.spiders', 'REDIRECT_ENABLED': False, 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler', 'SPIDER_MODULES': ['DragonMaoMaoSpider.spiders']}
+2018-08-11 16:34:36 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2018-08-11 16:34:36 [DouBanSpider] INFO: Reading start URLs from redis key 'DouBanSpider:start_urls' (batch size: 16, encoding: utf-8
+2018-08-11 16:34:37 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['DragonMaoMaoSpider.middlewares.proxies_middleware.ProxyMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'DragonMaoMaoSpider.middlewares.agent_middleware.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-08-11 16:34:37 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-08-11 16:34:37 [scrapy.middleware] INFO: Enabled item pipelines:
+['DragonMaoMaoSpider.pipelines.MongoDBPipeline']
+2018-08-11 16:34:37 [scrapy.core.engine] INFO: Spider opened
+2018-08-11 16:34:37 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-08-11 16:34:37 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6024
+2018-08-11 16:34:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=210> (referer: None)
+2018-08-11 16:34:38 [DouBanSpider] DEBUG: Read 16 requests from 'DouBanSpider:start_urls'
+2018-08-11 16:34:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/4898668/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=210)
+2018-08-11 16:34:39 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/4898668/?from=tag_all>
+{'author_info': '作者/译者： \n        缺月 ',
+ 'people_num': '544',
+ 'pub_info': '出版信息：  高寶 / 2009-8-5 / 250台币\n      ',
+ 'rating': '<span class="rating_nums">8.4</span>',
+ 'title': '缺月梧桐 卷一'}
+2018-08-11 16:34:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=195> (referer: None)
+2018-08-11 16:34:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/2974188/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=210)
+2018-08-11 16:34:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/2974188/?from=tag_all>
+{'author_info': '作者/译者： \n        月关 ',
+ 'people_num': '3230',
+ 'pub_info': '出版信息：  太白文艺 / 2007 / 22\n      ',
+ 'rating': '<span class="rating_nums">7.7</span>',
+ 'title': '回到明朝当王爷'}
+2018-08-11 16:34:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=180> (referer: None)
+2018-08-11 16:34:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1209676/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=210)
+2018-08-11 16:34:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1209676/?from=tag_all>
+{'author_info': '作者/译者： \n        古龙 ',
+ 'people_num': '4267',
+ 'pub_info': '出版信息：  花城出版社 / 1991-11 / 69.80元\n      ',
+ 'rating': '<span class="rating_nums">8.5</span>',
+ 'title': '绝代双骄'}
+2018-08-11 16:34:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=165> (referer: None)
+2018-08-11 16:34:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1312997/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=195)
+2018-08-11 16:34:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1312997/?from=tag_all>
+{'author_info': '作者/译者： \n        藤萍 ',
+ 'people_num': '4202',
+ 'pub_info': '出版信息：  广西人民出版社 / 2005-04 / 18.0\n      ',
+ 'rating': '<span class="rating_nums">9.0</span>',
+ 'title': '香初上舞·终上'}
+2018-08-11 16:34:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=150> (referer: None)
+2018-08-11 16:34:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/3165135/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=195)
+2018-08-11 16:34:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/3165135/?from=tag_all>
+{'author_info': '作者/译者： \n        猫腻 ',
+ 'people_num': '3843',
+ 'pub_info': '出版信息：  中国友谊出版公司 / 2008-07 / 28.00元\n      ',
+ 'rating': '<span class="rating_nums">8.4</span>',
+ 'title': '庆余年·贰'}
+2018-08-11 16:34:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=135> (referer: None)
+2018-08-11 16:34:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1337303/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=180)
+2018-08-11 16:35:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1337303/?from=tag_all>
+{'author_info': '作者/译者： \n        金庸 ',
+ 'people_num': '4372',
+ 'pub_info': '出版信息：  明河社 / 1980 / HK$160\n      ',
+ 'rating': '<span class="rating_nums">9.0</span>',
+ 'title': '笑傲江湖'}
+2018-08-11 16:35:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/26763010/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=180)
+2018-08-11 16:35:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/26763010/?from=tag_all>
+{'author_info': '作者/译者： ',
+ 'people_num': '463',
+ 'pub_info': '出版信息： \n        梦溪石 / 长江文艺出版社 / 2016-10\n      ',
+ 'rating': '<span class="rating_nums">7.9</span>',
+ 'title': '千秋'}
+2018-08-11 16:35:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=120> (referer: None)
+2018-08-11 16:35:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/26969302/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=165)
+2018-08-11 16:35:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/26969302/?from=tag_all>
+{'author_info': '作者/译者： ',
+ 'people_num': '227',
+ 'pub_info': '出版信息： \n        冰临神下 / 起点中文 / 2017-1-12\n      ',
+ 'rating': '<span class="rating_nums">8.5</span>',
+ 'title': '孺子帝'}
+2018-08-11 16:35:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=105> (referer: None)
+2018-08-11 16:35:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1010520/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=165)
+2018-08-11 16:35:10 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1010520/?from=tag_all>
+{'author_info': '作者/译者： \n        沧月 ',
+ 'people_num': '10536',
+ 'pub_info': '出版信息：  新世界出版社 / 2004-01 / 19.00元\n      ',
+ 'rating': '<span class="rating_nums">8.1</span>',
+ 'title': '血薇'}
+2018-08-11 16:35:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=90> (referer: None)
+2018-08-11 16:35:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1316623/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=150)
+2018-08-11 16:35:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1316623/?from=tag_all>
+{'author_info': '作者/译者： \n        萧鼎 ',
+ 'people_num': '8033',
+ 'pub_info': '出版信息：  朝华出版社 / 2005-6 / 22.00元\n      ',
+ 'rating': '<span class="rating_nums">8.4</span>',
+ 'title': '诛仙2'}
+2018-08-11 16:35:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=75> (referer: None)
+2018-08-11 16:35:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/30274990/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=150)
+2018-08-11 16:35:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/30274990/?from=tag_all>
+{'author_info': '作者/译者： \n        古龙 ',
+ 'people_num': '0',
+ 'pub_info': '出版信息：  读客文化·文汇出版社 / 2018-7 / 466.00\n      ',
+ 'rating': '0.0',
+ 'title': '小李飞刀（全九册）'}
+2018-08-11 16:35:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/3128115/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=135)
+2018-08-11 16:35:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/3128115/?from=tag_all>
+{'author_info': '作者/译者： ',
+ 'people_num': '6200',
+ 'pub_info': '出版信息： \n        金庸\n      ',
+ 'rating': '<span class="rating_nums">6.4</span>',
+ 'title': '鸳鸯刀'}
+2018-08-11 16:35:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=60> (referer: None)
+2018-08-11 16:35:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=45> (referer: None)
+2018-08-11 16:35:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/2218216/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=135)
+2018-08-11 16:35:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/2218216/?from=tag_all>
+{'author_info': '作者/译者： \n        金庸 ',
+ 'people_num': '4615',
+ 'pub_info': '出版信息：  广州出版社 / 2006-1 / 683\n      ',
+ 'rating': '<span class="rating_nums">9.5</span>',
+ 'title': '金庸作品集'}
+2018-08-11 16:35:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=30> (referer: None)
+2018-08-11 16:35:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1511965/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=135)
+2018-08-11 16:35:29 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1511965/?from=tag_all>
+{'author_info': '作者/译者： \n        温瑞安 ',
+ 'people_num': '1850',
+ 'pub_info': '出版信息：  花城出版社 / 1995-03-01 / 44.8\n      ',
+ 'rating': '<span class="rating_nums">8.1</span>',
+ 'title': '逆水寒'}
+2018-08-11 16:35:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/27203679/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=180)
+2018-08-11 16:35:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/27203679/?from=tag_all>
+{'author_info': '作者/译者： \n        程維鈞 ',
+ 'people_num': '44',
+ 'pub_info': '出版信息：  風雲時代 / 2017-11-20 / 580\n      ',
+ 'rating': '<span class="rating_nums">9.6</span>',
+ 'title': '本色古龍'}
+2018-08-11 16:35:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=15> (referer: None)
+2018-08-11 16:35:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=0> (referer: None)
+2018-08-11 16:35:37 [scrapy.extensions.logstats] INFO: Crawled 30 pages (at 30 pages/min), scraped 15 items (at 15 items/min)
+2018-08-11 16:35:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1057444/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=135)
+2018-08-11 16:35:38 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1057444/?from=tag_all>
+{'author_info': '作者/译者： \n        黄易 ',
+ 'people_num': '6168',
+ 'pub_info': '出版信息：  华艺出版社 / 1998-08 / 318.00\n      ',
+ 'rating': '<span class="rating_nums">8.6</span>',
+ 'title': '大唐双龙传'}
+2018-08-11 16:35:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.douban.com/tag/%E5%93%B2%E5%AD%A6/book?start=210> (referer: None)
+2018-08-11 16:35:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1420794/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=105)
+2018-08-11 16:35:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1420794/?from=tag_all>
+{'author_info': '作者/译者： \n        萧鼎 ',
+ 'people_num': '7676',
+ 'pub_info': '出版信息：  朝华出版社 / 2005-8 / 22.00元\n      ',
+ 'rating': '<span class="rating_nums">8.1</span>',
+ 'title': '诛仙4'}
+2018-08-11 16:35:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/4116115/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=105)
+2018-08-11 16:35:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/4116115/?from=tag_all>
+{'author_info': '作者/译者： \n        金庸 ',
+ 'people_num': '754',
+ 'pub_info': '出版信息：  廣州出版社 / 2011-11 / 88.元\n      ',
+ 'rating': '<span class="rating_nums">9.1</span>',
+ 'title': '神雕侠侣'}
+2018-08-11 16:35:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/27094499/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=90)
+2018-08-11 16:35:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/27094499/?from=tag_all>
+{'author_info': '作者/译者： ',
+ 'people_num': '274',
+ 'pub_info': '出版信息： \n        priest / 2013\n      ',
+ 'rating': '<span class="rating_nums">7.5</span>',
+ 'title': '七爷'}
+2018-08-11 16:35:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/26365250/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=90)
+2018-08-11 16:35:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/26365250/?from=tag_all>
+{'author_info': '作者/译者： \n        冰临神下 ',
+ 'people_num': '587',
+ 'pub_info': '出版信息：  起点 / 2015-2-14 / 30元\n      ',
+ 'rating': '<span class="rating_nums">8.6</span>',
+ 'title': '死人经'}
+2018-08-11 16:35:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1256186/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=90)
+2018-08-11 16:35:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1256186/?from=tag_all>
+{'author_info': '作者/译者： \n        沧月 ',
+ 'people_num': '11121',
+ 'pub_info': '出版信息：  新世界出版社 / 2005-1 / 19.80元\n      ',
+ 'rating': '<span class="rating_nums">8.3</span>',
+ 'title': '护花铃'}
+2018-08-11 16:36:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/4832584/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=90)
+2018-08-11 16:36:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/4832584/?from=tag_all>
+{'author_info': '作者/译者： \n        金庸 ',
+ 'people_num': '1328',
+ 'pub_info': '出版信息：  广州出版社 / 2011-11 / 98.00元\n      ',
+ 'rating': '<span class="rating_nums">9.3</span>',
+ 'title': '笑傲江湖'}
+2018-08-11 16:36:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/6969074/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=75)
+2018-08-11 16:36:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/6969074/?from=tag_all>
+{'author_info': '作者/译者： \n        金庸 ',
+ 'people_num': '1135',
+ 'pub_info': '出版信息：  广州出版社 / 2012-8 / 123.00元\n      ',
+ 'rating': '<span class="rating_nums">9.5</span>',
+ 'title': '天龙八部'}
+2018-08-11 16:36:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/30247517/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=60)
+2018-08-11 16:36:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/30247517/?from=tag_all>
+{'author_info': '作者/译者： \n        许先哲 ',
+ 'people_num': '0',
+ 'pub_info': '出版信息：  北京联合出版公司 / 2018-8 / 39.90元\n      ',
+ 'rating': '0.0',
+ 'title': '镖人'}
+2018-08-11 16:36:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/24283160/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=45)
+2018-08-11 16:36:10 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/24283160/?from=tag_all>
+{'author_info': '作者/译者： ',
+ 'people_num': '2059',
+ 'pub_info': '出版信息： \n        猫腻 / 起点中文网 / 2009-4-27\n      ',
+ 'rating': '<span class="rating_nums">8.7</span>',
+ 'title': '间客'}
+2018-08-11 16:36:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1068308/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=60)
+2018-08-11 16:36:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1068308/?from=tag_all>
+{'author_info': '作者/译者： \n        金庸 ',
+ 'people_num': '16228',
+ 'pub_info': '出版信息：  三联书店 / 1999-04 / 0\n      ',
+ 'rating': '<span class="rating_nums">7.6</span>',
+ 'title': '雪山飞狐'}
+2018-08-11 16:36:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/25890348/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=30)
+2018-08-11 16:36:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/25890348/?from=tag_all>
+{'author_info': '作者/译者： ',
+ 'people_num': '969',
+ 'pub_info': '出版信息： \n        Priest / 2014-3\n      ',
+ 'rating': '<span class="rating_nums">8.3</span>',
+ 'title': '天涯客（下册）'}
+2018-08-11 16:36:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1076045/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=45)
+2018-08-11 16:36:20 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1076045/?from=tag_all>
+{'author_info': '作者/译者： \n        金庸 ',
+ 'people_num': '16425',
+ 'pub_info': '出版信息：  三联书店 / 1999-04 / 12.00\n      ',
+ 'rating': '<span class="rating_nums">7.7</span>',
+ 'title': '连城诀'}
+2018-08-11 16:36:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1316622/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=60)
+2018-08-11 16:36:23 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1316622/?from=tag_all>
+{'author_info': '作者/译者： \n        萧鼎 ',
+ 'people_num': '13345',
+ 'pub_info': '出版信息：  朝华出版社 / 2005-6 / 22.00元\n      ',
+ 'rating': '<span class="rating_nums">8.3</span>',
+ 'title': '诛仙1'}
+2018-08-11 16:36:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/27061120/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=15)
+2018-08-11 16:36:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/27061120/?from=tag_all>
+{'author_info': '作者/译者： \n        ？ ',
+ 'people_num': '1607',
+ 'pub_info': '出版信息：  ？ / 1900 / \n      ',
+ 'rating': '<span class="rating_nums">8.6</span>',
+ 'title': '六爻'}
+2018-08-11 16:36:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/30257985/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=0)
+2018-08-11 16:36:30 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/30257985/?from=tag_all>
+{'author_info': '作者/译者： \n        念远怀人 ',
+ 'people_num': '0',
+ 'pub_info': '出版信息：  文化发展出版社 / 2018-8-1 / 90\n      ',
+ 'rating': '0.0',
+ 'title': '三十六骑'}
+2018-08-11 16:36:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/30282498/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=15)
+2018-08-11 16:36:33 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/30282498/?from=tag_all>
+{'author_info': '作者/译者： \n        周末 著 / 笑脸猫 改编 ',
+ 'people_num': '0',
+ 'pub_info': '出版信息：  九州出版社 / 2018-8-1 / 88.00\n      ',
+ 'rating': '0.0',
+ 'title': '延禧攻略'}
+2018-08-11 16:36:37 [scrapy.extensions.logstats] INFO: Crawled 48 pages (at 18 pages/min), scraped 32 items (at 17 items/min)
+2018-08-11 16:36:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1430909/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=45)
+2018-08-11 16:36:37 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1430909/?from=tag_all>
+{'author_info': '作者/译者： \n        凤歌 ',
+ 'people_num': '8860',
+ 'pub_info': '出版信息：  团结出版社 / 2005-9 / 20.00元\n      ',
+ 'rating': '<span class="rating_nums">8.6</span>',
+ 'title': '昆仑1'}
+2018-08-11 16:36:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/30239181/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=15)
+2018-08-11 16:36:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/30239181/?from=tag_all>
+{'author_info': '作者/译者： \n        杨虚白 ',
+ 'people_num': '45',
+ 'pub_info': '出版信息：  作家出版社 / 2018-6 / 42.80元\n      ',
+ 'rating': '<span class="rating_nums">8.7</span>',
+ 'title': '挥戈'}
+2018-08-11 16:36:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://book.douban.com/subject/1264579/?from=tag_all> (referer: https://www.douban.com/tag/%E6%AD%A6%E4%BE%A0/book?start=15)
+2018-08-11 16:36:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://book.douban.com/subject/1264579/?from=tag_all>
+{'author_info': '作者/译者： \n        古龙 ',
+ 'people_num': '10002',
+ 'pub_info': '出版信息：  珠海出版社 / 2005-8 / 28.00元\n      ',
+ 'rating': '<span class="rating_nums">8.8</span>',
+ 'title': '欢乐英雄'}
