@@ -1,7 +1,7 @@
 from DragonMaoMaoSpider.util.parser import YamlPareser
-import pymongo
 import urllib.parse
 import redis
+from rediscluster import StrictRedisCluster
 
 class RedisDBClient(object):
     def __init__(self):
@@ -12,8 +12,11 @@ class RedisDBClient(object):
         self.client = self.create()
 
     def create(self):
-        if self.ymlpaser.get(self.redisdb, 'url'):
-            return redis.Redis(urllib.parse.quote_plus(self.redisdb['user']))
+        if self.ymlpaser.get(self.redisdb, 'nodes'):
+            host_opt = []
+            for r in self.redisdb['nodes']['members']:
+                host_opt.append({"host":r['host'],"port":r['port']})
+            return StrictRedisCluster(startup_nodes=host_opt, decode_responses=True)
         else:
             return redis.Redis(host=self.redisdb['host'], port=self.redisdb['port'], db=self.db, password=self.pwd)
 

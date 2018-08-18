@@ -10,9 +10,9 @@ class MongoDBClient(object):
         self.client = self.create()
 
     def create(self):
-        if self.ymlpaser.get(self.mongodb, 'replicaSet'):
+        if self.ymlpaser.get(self.mongodb, 'nodes'):
             host_opt = []
-            for m in self.mongodb['replicaSet']['members']:
+            for m in self.mongodb['nodes']['members']:
                 host_opt.append('%s:%s' % (m['host'], m['port']))
             replicaSet = self.mongodb['replicaSet']['name']
         else:

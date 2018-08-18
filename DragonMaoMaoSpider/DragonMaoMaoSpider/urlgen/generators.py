@@ -10,7 +10,7 @@ class DouBanUrlGenerator(object):
     #default use list  settings:REDIS_START_URLS_AS_SET=False
     def gen(self):
         url = 'https://www.douban.com/tag/' + urllib.parse.quote(self.tag) + '/book?start=' + str(self.page_num * 15)
-        redis_cli.lpush(self.redis_key,url)
+        redis_cli.rpush(self.redis_key,url)
         self.page_num += 1
 
     def totalgen(self):

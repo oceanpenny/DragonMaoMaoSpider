@@ -28,7 +28,9 @@ ROBOTSTXT_OBEY = False
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
 AUTOTHROTTLE_ENABLED = True
-DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 0
+
+
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -95,11 +97,10 @@ REDIRECT_ENABLED = False
 from DragonMaoMaoSpider.util.parser import YamlPareser
 REDIS_HOST = YamlPareser().get(key='Redis.conn')['host']
 REDIS_PORT = YamlPareser().get(key='Redis.conn')['port']
-REDIS_URL = YamlPareser().get(key='Redis.conn')['url']
+#REDIS_URL = YamlPareser().get(key='Redis.conn')['url']
 
 
 SCHEDULER_PERSIST = True
-SCHEDULER_DUPEFILTER_KEY = '%(spider)s:dupefilter'
 SCHEDULER_DUPEFILTER_CLASS = 'scrapy_redis.dupefilter.RFPDupeFilter'
 SCHEDULER_IDLE_BEFORE_CLOSE = 10
 SCHEDULER_FLUSH_ON_START = False

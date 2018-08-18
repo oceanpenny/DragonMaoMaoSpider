@@ -1,6 +1,6 @@
 
 from scrapy_redis.spiders import RedisSpider
-from DragonMaoMaoSpider.items import BookItem
+from DragonMaoMaoSpider.items import DouBan_BookItem
 from DragonMaoMaoSpider.urlgen.generators import DouBanUrlGenerator
 from scrapy.http import Request
 
@@ -13,13 +13,15 @@ class Spider(RedisSpider):
     #no need to login, no cookies, disable redirect
     custom_settings = {
         'COOKIES_ENABLED': False,
+        'SCHEDULER_DUPEFILTER_KEY':'DouBanSpider:dupefilter',
     }
 
     for tag in {'爱情','传记','汽车','旅游','历史','武侠','哲学','物理','心理学'}:
         DouBanUrlGenerator(tag, redis_key).totalgen()
 
     def parse(self, response):
-        bookItem = BookItem()
+        return
+        bookItem = DouBan_BookItem()
         booklist = response.xpath('//div[@class="mod book-list"]')
         for book_info in booklist.xpath('.//dd'):
             bookItem['title'] = book_info.xpath('./a[@class="title"]/text()').extract()[0]
@@ -38,7 +40,7 @@ class Spider(RedisSpider):
                 bookItem['rating'] = book_info.xpath('.//span[@class="rating_nums"]').extract()[0]
             except:
                 bookItem['rating'] ='0.0'
-            yield (Request(url=book_url, meta={"item": bookItem}, callback=self.parsbook_url, dont_filter=True))
+            yield (Request(url=book_url, meta={"item": bookItem}, callback=self.parsbook_url))
 
     def parsbook_url(self, response):
         item = response.meta['item']

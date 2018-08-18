@@ -7,7 +7,7 @@ MongoDB.conn:
 #--default use admin
 #  db: 'admin'
 #--deafault no cluster
-#  replicaSet:
+#  nodes:
 #    name: 
 #    members:
 #      - host: 'localhost'
@@ -19,7 +19,13 @@ MongoDB.conn:
 Redis.conn:
   host: '127.0.0.1'
   port: 6379
-  url:
 #--deafault no user/pwd check
 #  pwd:
-#  db: 0
+#  db: 0  #cluster only db0 possible
+#--deafault no cluster
+#  nodes:
+#    members:
+#      - host: 'localhost'
+#        port: 6379
+#      - host: 'localhost'
+#        port: 27017

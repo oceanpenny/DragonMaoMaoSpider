@@ -1,9 +1,10 @@
 import yaml
 import configparser
-import approot
+import os
+from approot import get_root
 
 class YamlPareser(object):
-    def __init__(self,filename = approot.get_root()  + '\\config.yml'):
+    def __init__(self,filename = os.path.join(get_root(),'config.yml')):
         self.configs = yaml.load(open(filename,'r'))
 
     def get(self, configs=None, key=None):
@@ -30,7 +31,7 @@ if __name__ == '__main__':
     #configs = ConfigParser()
     #mysql_conn = configs.get(server='',key='conn')
     #print(mysql_conn)
-    yml =approot.get_root()  + '\\config.yml'
+    yml = get_root()  + '\\config.yml'
     ymlpaser = YamlPareser(yml)
     conn = ymlpaser.get(key = 'MongoDB.conn')
     print(conn)
