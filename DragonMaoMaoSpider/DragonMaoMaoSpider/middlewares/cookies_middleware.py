@@ -2,6 +2,7 @@ import json
 import os
 import random
 
+from scrapy.downloadermiddlewares.retry import RetryMiddleware
 from scrapy.exceptions import IgnoreRequest
 from scrapy.utils.response import response_status_message
 from twisted.web._newclient import ResponseNeverReceived
@@ -21,12 +22,13 @@ class CookiesMiddleware(object):
     def process_request(self, request, spider):
         redisKeys = redis_cli.keys('%s:Cookies*' % spider.name)
         if len(redisKeys) > 0:
-            elem = random.choice(redisKeys)
+            elem = random.choice(redisKeys).decode('utf-8')
             cookie = json.loads(redis_cli.get(elem))
             request.cookies = cookie
-            request.meta["accountText"] = elem.split("Cookies:")[-1]
+            account = elem.split("Cookies:")[-1]
+            request.meta["accountText"] = elem.split("Cookies:")[-1].encode()
 
-    #this method should set redis_enable = false, and get redirect url when cookie invalid/acounts forbidden/or any strange urls
+    #this method should set redis_enable = false, and process redirect url when cookie invalid/acounts forbidden/or any strange urls
     def process_response(self, request, response, spider):
         if spider.name == 'SinaSpider':
             return self.sina_cookies_redirect(request, response, spider)
@@ -47,8 +49,9 @@ class CookiesMiddleware(object):
                 elif "weibo.cn/pub" in redirect_url:
                     logger.warning(
                         "Redirect to 'http://weibo.cn/pub'!( Account:%s )" % request.meta["accountText"].split("--")[0])
-                reason = response_status_message(response.status)
-                return self._retry(request, reason, spider) or response  # 重试
+                new_request = request.copy()
+                new_request.dont_filter = True
+                return new_request
             except Exception as e:
                 raise IgnoreRequest
         elif response.status in [403, 414]:

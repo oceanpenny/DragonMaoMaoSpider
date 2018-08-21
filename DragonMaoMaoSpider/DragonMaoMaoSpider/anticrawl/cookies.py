@@ -56,7 +56,6 @@ def get_sina_cookie_from_cn(user, pwd):
             if "我的首页" not in browser.title:
                 time.sleep(4)
             if '未激活微博' in browser.page_source:
-                print('账号未开通微博')
                 return {}
 
         cookie = {}
@@ -86,7 +85,7 @@ def initCookie(spiderName, acounts, method):
             if len(cookie) > 0:
                 redis_cli.set("%s:Cookies:%s--%s" % (spiderName, encode_user, encode_pwd), cookie)
     #no cookies, no crwal
-    if redis_cli.get('%s:Cookies' % spiderName) is None:
+    if redis_cli.keys('%s:Cookies' % spiderName) is None:
         logger.warning('%s Cookies None' % spiderName)
         logger.warning("Stopping...")
         os.system("pause")

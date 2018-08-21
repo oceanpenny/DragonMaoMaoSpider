@@ -15,9 +15,9 @@ class Spider(RedisSpider):
         'COOKIES_ENABLED': False,
         'SCHEDULER_DUPEFILTER_KEY':'DouBanSpider:dupefilter',
     }
-
-    for tag in {'爱情','传记','汽车','旅游','历史','武侠','哲学','物理','心理学'}:
-        DouBanUrlGenerator(tag, redis_key).totalgen()
+    def __init__(self):
+        for tag in {'爱情', '传记', '汽车', '旅游', '历史', '武侠', '哲学', '物理', '心理学'}:
+            DouBanUrlGenerator(tag, self.redis_key).totalgen()
 
     def parse(self, response):
         return

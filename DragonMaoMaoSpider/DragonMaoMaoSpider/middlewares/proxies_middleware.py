@@ -21,16 +21,16 @@ class ProxyMiddleware(object):
             logger.debug('change proxy per %s minutes' % self.interval)
 
         if 'change_proxy' in request.meta.keys() and request.meta['change_proxy']:
-            #if self.last_proxy:
-                #del_ip = self.last_proxy.split('//')[1]
+            if self.last_proxy:
+                del_ip = self.last_proxy.split('//')[1]
             if request.url.startswith('https://'):
                 self.last_proxy = proxy.get_proxy(https_key)
                 request.meta['proxy'] = self.last_proxy
-                #proxy.delete_proxy(https_key, del_ip)
+                proxy.delete_proxy(https_key, del_ip)
             elif request.url.startswith('http://'):
                 self.last_proxy = proxy.get_proxy(http_key)
                 request.meta['proxy'] = self.last_proxy
-                #proxy.delete_proxy(http_key, del_ip)
+                proxy.delete_proxy(http_key, del_ip)
             request.meta['change_proxy'] = False
             logger.debug('url:%s, proxyy:%s' % (request.url, request.meta['proxy']))
 
@@ -50,8 +50,4 @@ class ProxyMiddleware(object):
 
     #sample retry and change proxy
     def process_exception(self, request, exception, spider):
-        logger.debug('request exception: %s' % request.url)
-        new_request = request.copy()
-        new_request.meta['change_proxy'] = True
-        new_request.dont_filter = True
-        return new_request
+        pass

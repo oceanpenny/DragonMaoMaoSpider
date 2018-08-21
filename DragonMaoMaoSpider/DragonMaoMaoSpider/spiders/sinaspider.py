@@ -4,6 +4,8 @@ import datetime
 
 from scrapy import Request
 from scrapy_redis.spiders import RedisSpider
+
+from DragonMaoMaoSpider.dao.redisdb import redis_cli
 from DragonMaoMaoSpider.urlgen.sina_generator import init_seed, SinaGenerator
 from DragonMaoMaoSpider.items import Sina_RelationItem, Sina_TweetsItem, Sina_InfoItem
 from DragonMaoMaoSpider.anticrawl.cookies import initCookie, get_sina_cookie_from_cn, sina_acounts
@@ -17,11 +19,18 @@ logger = logging.getLogger(__name__)
 
 class Spider(RedisSpider):
     name = 'SinaSpider'
-    host = "https://weibo.cn"
     redis_key = "SinaSpider:start_urls"
+    host = "https://weibo.cn"
 
     model = SINGLE_RELATIONS
-    custom_settings = {}
+    custom_settings = {
+        'DOWNLOADER_MIDDLEWARES':  {
+            'DragonMaoMaoSpider.middlewares.proxies_middleware.ProxyMiddleware': 100,
+            'DragonMaoMaoSpider.middlewares.agent_middleware.UserAgentMiddleware': 400,
+            'DragonMaoMaoSpider.middlewares.cookies_middleware.CookiesMiddleware': 500,
+        },
+        'REDIS_START_URLS_AS_SET':True,
+    }
 
     def __init__(self):
         generator = SinaGenerator(self.redis_key)
@@ -33,15 +42,15 @@ class Spider(RedisSpider):
         ID = re.findall('(\d+)/info', response.url)[0]
         try:
             text1 = ";".join(response.xpath('body/div[@class="c"]//text()').extract())  # 获取标签里的所有text()
-            nickname = re.findall('昵称[：:]?(.*?);'.decode('utf8'), text1)
-            gender = re.findall('性别[：:]?(.*?);'.decode('utf8'), text1)
-            place = re.findall('地区[：:]?(.*?);'.decode('utf8'), text1)
-            briefIntroduction = re.findall('简介[：:]?(.*?);'.decode('utf8'), text1)
-            birthday = re.findall('生日[：:]?(.*?);'.decode('utf8'), text1)
-            sexOrientation = re.findall('性取向[：:]?(.*?);'.decode('utf8'), text1)
-            sentiment = re.findall('感情状况[：:]?(.*?);'.decode('utf8'), text1)
-            authentication = re.findall('认证[：:]?(.*?);'.decode('utf8'), text1)
-            url = re.findall('互联网[：:]?(.*?);'.decode('utf8'), text1)
+            nickname = re.findall('昵称[：:]?(.*?);', text1)
+            gender = re.findall('性别[：:]?(.*?);', text1)
+            place = re.findall('地区[：:]?(.*?);', text1)
+            briefIntroduction = re.findall('简介[：:]?(.*?);', text1)
+            birthday = re.findall('生日[：:]?(.*?);', text1)
+            sexOrientation = re.findall('性取向[：:]?(.*?);', text1)
+            sentiment = re.findall('感情状况[：:]?(.*?);', text1)
+            authentication = re.findall('认证[：:]?(.*?);', text1)
+            url = re.findall('互联网[：:]?(.*?);', text1)
 
             info_item['ID'] = ID
             if nickname and nickname[0]:
@@ -75,11 +84,38 @@ class Spider(RedisSpider):
 
             #crwal other info ex.Num_Tweets/Num_Follows/Num_Fans
             urlothers = 'https://weibo.cn/attgroup/opening?uid=%s' % ID
-            yield (Request(url=urlothers, meta={'item': info_item}, callback=self.parse_others))
+            yield Request(url=urlothers, meta={'item': info_item}, callback=self.parse_others)
         except Exception as e:
             logger.error('crawl ID:%s info failed, exception:%s' % (ID, e))
-            pass
 
     def parse_others(self, response):
         info_item = response.meta['item']
-        text = ":".join(response.xpath('//div[@class="tip2"]/a//text()').extract())
+        texts = ":".join(response.xpath('//div[@class="tip2"]/a//text()').extract())
+        if texts:
+            num_tweets = re.findall('微博\[(\d+)\]', texts)
+            num_follows = re.findall('关注\[(\d+)\]', texts)
+            num_fans = re.findall('粉丝\[(\d+)\]', texts)
+            if num_tweets:
+                info_item["Num_Tweets"] = int(num_tweets[0])
+            if num_follows:
+                info_item["Num_Follows"] = int(num_follows[0])
+            if num_fans:
+                info_item["Num_Fans"] = int(num_fans[0])
+        yield info_item
+        ID = info_item['ID']
+        # infinite Loop, crawal new info via follow and fans
+        if info_item["Num_Follows"] and info_item["Num_Follows"] < 500:
+            yield Request(url="https://weibo.cn/%s/follow" % ID, callback=self.parse_info)
+        if info_item["Num_Fans"] and info_item["Num_Fans"] < 500:
+            yield Request(url="https://weibo.cn/%s/fans" % ID, callback=self.parse_info)
+
+    def parse_info(self,response):
+        urls = response.xpath('//a[text()="关注他" or text()="关注她"]/@href').extract()
+        uids = re.findall('uid=(\d+)', ";".join(urls), re.S)
+        for uid in uids:
+            url = "https://weibo.cn/%s/info" % uid
+            redis_cli.sadd(self.redis_key, url)
+
+        next_url = response.xpath('//a[text()="下页"]/@href').extract()
+        if next_url:
+            yield Request(url=self.host+next_url[0], callback=self.parse_info)
