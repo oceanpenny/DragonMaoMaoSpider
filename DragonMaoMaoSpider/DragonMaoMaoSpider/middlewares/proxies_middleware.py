@@ -15,24 +15,26 @@ class ProxyMiddleware(object):
 
     #defaut change proxy after 20 minutes or request.meta['change_proxy']=true which may cause by except or response.
     def process_request(self, request, spider):
+        request.meta['proxy'] = self.last_proxy
+
         if datetime.now() > (self.last_proxy_time + timedelta(minutes=self.interval)):
-            request.meta['change_proxy'] = True
+            if self.last_proxy is None:
+                request.meta['change_proxy'] = True
+            else:
+                request.meta['change_proxy'] = False
+                request.meta['proxy'] = None
             self.last_proxy_time = datetime.now()
             logger.debug('change proxy per %s minutes' % self.interval)
 
         if 'change_proxy' in request.meta.keys() and request.meta['change_proxy']:
-            if self.last_proxy:
-                del_ip = self.last_proxy.split('//')[1]
             if request.url.startswith('https://'):
                 self.last_proxy = proxy.get_proxy(https_key)
                 request.meta['proxy'] = self.last_proxy
-                proxy.delete_proxy(https_key, del_ip)
             elif request.url.startswith('http://'):
                 self.last_proxy = proxy.get_proxy(http_key)
                 request.meta['proxy'] = self.last_proxy
-                proxy.delete_proxy(http_key, del_ip)
             request.meta['change_proxy'] = False
-            logger.debug('url:%s, proxyy:%s' % (request.url, request.meta['proxy']))
+            logger.debug('url:%s, proxy:%s' % (request.url, request.meta['proxy']))
 
     #when response code is not 200 or not in allowed status_list change_proxy and try again, set dont_filter=True
     #you should init your spider.allowed_status_list attribute.

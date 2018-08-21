@@ -104,7 +104,7 @@ def updateCookie(accountText, spiderName, method):
 def removeCookie(accountText, spiderName):
     redis_cli.delete("%s:Cookies:%s" % (spiderName, accountText))
     # no cookies, no crwal
-    if redis_cli.get('%s:Cookies' % spiderName) is None:
+    if redis_cli.keys('%s:Cookies' % spiderName) is None:
         logger.warning('%s Cookies None' % spiderName)
         logger.warning("Stopping...")
         os.system("pause")

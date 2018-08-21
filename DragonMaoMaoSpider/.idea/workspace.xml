@@ -11,35 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sina_generator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/urlgen/sina_generator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="46" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="46" />
-              <folding>
-                <element signature="e#1#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="proxies_middleware.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/middlewares/proxies_middleware.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="71" lean-forward="true" selection-start-line="20" selection-start-column="71" selection-end-line="20" selection-end-column="71" />
-              <folding>
-                <element signature="e#1#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="cookies.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/cookies.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="99" column="9" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="9" />
+            <state relative-caret-position="439">
+              <caret line="106" column="21" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="21" />
               <folding>
                 <element signature="e#169#180#0" expanded="true" />
               </folding>
@@ -47,11 +23,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sinaspider.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sinaspider.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/spiders/sinaspider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="99" column="27" lean-forward="true" selection-start-line="99" selection-start-column="27" selection-end-line="99" selection-end-column="27" />
+            <state relative-caret-position="306">
+              <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -59,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="-1032">
+              <caret line="30" column="14" selection-start-line="30" selection-end-line="30" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -71,11 +47,32 @@
       <file leaf-file-name="spiders.py" pinned="false" current-in-tab="false">
         <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy_redis/spiders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="77" selection-start-line="77" selection-end-line="77" />
+            <state relative-caret-position="286">
+              <caret line="124" column="33" selection-start-line="124" selection-start-column="33" selection-end-line="124" selection-end-column="33" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy/spiders/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#84#98#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default_settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy/settings/default_settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="76" column="16" selection-start-line="76" selection-end-line="76" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -89,20 +86,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cmdline.py" pinned="false" current-in-tab="false">
-        <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy/cmdline.py">
+      <file leaf-file-name="proxy.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/proxy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-601">
-              <caret line="97" column="4" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
+            <state relative-caret-position="1628">
+              <caret line="98" column="10" selection-start-line="98" selection-start-column="10" selection-end-line="98" selection-end-column="10" />
+              <folding>
+                <element signature="e#23#36#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="defaults.py" pinned="false" current-in-tab="false">
-        <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy_redis/defaults.py">
+      <file leaf-file-name="proxies_middleware.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/middlewares/proxies_middleware.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="456">
-              <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+              <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+              <folding>
+                <element signature="e#1#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -154,14 +157,14 @@
         <option value="$PROJECT_DIR$/DragonMaoMaoSpider/urlgen/generators.py" />
         <option value="$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/proxy.py" />
         <option value="$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/sina_cookies.py" />
-        <option value="$PROJECT_DIR$/DragonMaoMaoSpider/middlewares/proxies_middleware.py" />
         <option value="$PROJECT_DIR$/DragonMaoMaoSpider/spiders/doubanspider.py" />
-        <option value="$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/cookies.py" />
         <option value="$PROJECT_DIR$/DragonMaoMaoSpider/middlewares/cookies_middleware.py" />
         <option value="$PROJECT_DIR$/DragonMaoMaoSpider/urlgen/sina_generator.py" />
-        <option value="$PROJECT_DIR$/DragonMaoMaoSpider/spiders/sinaspider.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/DragonMaoMaoSpider/settings.py" />
+        <option value="$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/cookies.py" />
+        <option value="$PROJECT_DIR$/DragonMaoMaoSpider/middlewares/proxies_middleware.py" />
+        <option value="$PROJECT_DIR$/DragonMaoMaoSpider/spiders/sinaspider.py" />
       </list>
     </option>
   </component>
@@ -419,20 +422,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Program Files/python/Lib/logging/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="985" selection-start-line="985" selection-end-line="985" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy/utils/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy/downloadermiddlewares/redirect.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -624,13 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy/spiders/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy/core/scheduler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-652">
@@ -640,16 +622,6 @@
     </entry>
     <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy/core/engine.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/proxy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1748">
-          <caret line="98" column="10" selection-start-line="98" selection-start-column="10" selection-end-line="98" selection-end-column="10" />
-          <folding>
-            <element signature="e#23#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/urlgen/generators.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -704,16 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/middlewares/proxies_middleware.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="71" lean-forward="true" selection-start-line="20" selection-start-column="71" selection-end-line="20" selection-end-column="71" />
-          <folding>
-            <element signature="e#1#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/urlgen/sina_generator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -728,16 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/cookies.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="99" column="9" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="9" />
-          <folding>
-            <element signature="e#169#180#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -765,30 +717,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/ghostdriver.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/proxy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1628">
+          <caret line="98" column="10" selection-start-line="98" selection-start-column="10" selection-end-line="98" selection-end-column="10" />
+          <folding>
+            <element signature="e#23#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/anticrawl/cookies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="106" column="21" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="21" />
+          <folding>
+            <element signature="e#169#180#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/middlewares/proxies_middleware.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+          <folding>
+            <element signature="e#1#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy_redis/spiders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="286">
+          <caret line="124" column="33" selection-start-line="124" selection-start-column="33" selection-end-line="124" selection-end-column="33" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/spiders/sinaspider.py">
+    <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy/spiders/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="99" column="27" lean-forward="true" selection-start-line="99" selection-start-column="27" selection-end-line="99" selection-end-column="27" />
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#84#98#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Program Files/python/Lib/site-packages/scrapy/settings/default_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="76" column="16" selection-start-line="76" selection-end-line="76" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="-1032">
+          <caret line="30" column="14" selection-start-line="30" selection-end-line="30" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DragonMaoMaoSpider/spiders/sinaspider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

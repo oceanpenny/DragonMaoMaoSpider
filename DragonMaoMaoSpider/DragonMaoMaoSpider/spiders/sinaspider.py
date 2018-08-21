@@ -30,6 +30,7 @@ class Spider(RedisSpider):
             'DragonMaoMaoSpider.middlewares.cookies_middleware.CookiesMiddleware': 500,
         },
         'REDIS_START_URLS_AS_SET':True,
+        'DOWNLOAD_TIMEOUT':100,
     }
 
     def __init__(self):
