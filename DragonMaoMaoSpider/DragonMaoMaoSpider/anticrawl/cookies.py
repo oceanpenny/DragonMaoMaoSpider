@@ -21,7 +21,10 @@ logging.getLogger("selenium").setLevel(logging.WARNING)
 
 vcode_png = os.path.join(get_root(),'tmp.png')
 sina_acounts = [
-    {'user': '15995010739', 'pwd': '214620abc'}
+    {'user': '15995010739', 'pwd': '214620abc'},
+    {'user': '18323579862', 'pwd': '214620abc'},
+    {'user': 'penghq_mail@163.com', 'pwd': '214620abc'},
+    {'user': '1006068025@qq.com', 'pwd': '214620'}
 ]
 
 #warning PhantomJS do not suport
